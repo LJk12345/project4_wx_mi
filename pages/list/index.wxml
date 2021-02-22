@@ -1,0 +1,38 @@
+<wxs src="../comm.wxs" module="comm"></wxs>
+<view class="page-list iconfont">
+  <view class="page-list_header">
+    <view class="header_search">
+      <i class="icon-search"  bind:tap="getListByName"></i>
+      <view>
+        <input type="text" value="{{condition.name}}" bind:input="searchText"/>
+      </view>
+      <i class="icon-category" bindtap="listMode" wx:if="{{showMode}}"></i>
+      <i class="icon-list" bindtap="listMode" wx:else></i>
+    </view>
+    <view class="header_nav" >
+      <view class="{{condition.orderCol==='sale' ? 'select' : ''}}" data-sortclass="sale" bind:tap="getOrderCol">销量</view>
+      <view class="{{condition.orderCol==='price' ? 'select' : ''}}" data-sortclass="price" bind:tap="getOrderCol"><span>价格</span></view>
+      <view class="{{condition.orderCol==='rate' ? 'select' : ''}}" data-sortclass="rate" bind:tap="getOrderCol">热度</view>
+      <view>
+        <i wx:if="{{condition.orderDir==='asc'}}" class="icon-asc select" data-sort="desc" bind:tap="getOrderDir"></i>
+        <i wx:else class="icon-desc select" data-sort="asc" bind:tap="getOrderDir"></i>
+      </view>
+    </view>
+  </view>
+  <scroll-view class="page-list_content"  scroll-y bindscrolltolower="onReachBottom">
+    <view class="{{showMode ? 'product_list' : 'product_list_row'}}">
+      <view class="{{showMode ? 'column-li' : 'row-li'}}" wx:for="{{list}}" wx:key="cid">
+        <navigator class="{{showMode ? 'column-a' : 'row-a'}}" url="/pages/product/index?id={{item.id}}">
+          <image class="{{showMode ? 'avatar' : 'row-avatar'}}" src="{{comm.baseUrl+item.avatar}}" />
+          <view class="{{showMode ? 'product_message' : 'row-product_message'}}">
+            <view class="name">{{item.name}}</view>
+            <view class="brief">{{item.brief}}</view>
+            <view class="price">¥<span>{{item.price}}</span></view>
+            <view >销量:<span >{{item.sale}}</span> 好评率:<span>{{item.rate}}</span></view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class="null" wx:if="{{list.length===0}}">暂无相关产品</view>
+  </scroll-view>
+</view>

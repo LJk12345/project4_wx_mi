@@ -1,0 +1,110 @@
+<wxs src="../comm.wxs" module="comm"></wxs>
+<wxs module="amount">
+	module.exports = function (cartList,isEdit) {
+		var result = 0;
+		for (var i = 0; i < cartList.length; i++) {
+			if (!isEdit && cartList[i].checked1) result +=cartList[i].count; 
+			if (isEdit && cartList[i].checked2) result += cartList[i].count;
+		} 
+		return result;
+	} 
+</wxs>
+<wxs module="total">
+	module.exports = function (cartList) {
+		var result = 0;
+			for (var i = 0; i < cartList.length; i++){ 
+				if(cartList[i].checked1) result += cartList[i].count * cartList[i].price 
+			} 
+		return result;
+	} 
+</wxs>
+<wxs module="isAllCheck">
+	module.exports = function (cartList, isEdit) {
+		var a = true;
+		if (!isEdit) {
+			for (var i = 0; i < cartList.length; i++) 
+			{ a = a && cartList[i].checked1 }
+		} 
+		else {
+			for (var i = 0; i < cartList.length; i++) { a = a && cartList[i].checked2 }
+		} return a ? "icon_checkbox_check" : "icon_checkbox_uncheck";
+	}
+</wxs>
+<view class="cart_list-container">
+	<view class="cart_list-header" style="opacity:{{opacity}}">
+			<text class="titleCenter">购物车</text>
+			<text class="a" bind:tap="cutIsEdit" hidden="{{isEdit}}" >编辑</text>
+			<text class="a" bind:tap="cutIsEdit" hidden="{{!isEdit}}">完成</text>
+	</view>
+	<scroll-view scroll-y class="cart_list-content" bind:scroll="scroll">
+		<l-toast/>
+		<image class="cart_list_background" src="./img/shoppingCard_01.png" />
+		<view class="cart_list-content_middle">
+			<view class="top">
+				<!-- <i class="icon-back iconfont" bind:tap="back"/> -->
+				<text class="titleCenter">购物车</text>
+				<text class="b" bind:tap="cutIsEdit" hidden="{{isEdit}}" >编辑</text>
+				<text class="b" bind:tap="cutIsEdit" hidden="{{!isEdit}}">完成</text>
+			</view>
+			<view class="empty_list" wx:if="{{empty}}" >
+				<image src="./img/shoppingCard_02.png" />
+				<view>购物车还没有商品哦~</view>
+				<navigator url="/pages/home/index">去逛逛</navigator>
+			</view>
+
+			<view class="cart_list-content_list" wx:else>
+				<view class="list_box" wx:for="{{cartList}}" wx:key="index">
+					<view class="list_content" >
+						<view hidden="{{isEdit}}" data-id="{{item.id}}" bind:tap="checked">
+							<image hidden="{{item.checked1}}" class="cart_checkbox"
+								src="./img/icon_checkbox_uncheck.png" />
+							<image hidden="{{!item.checked1}}" class="cart_checkbox"
+								src="./img/icon_checkbox_check.png" />
+						</view>
+						<view hidden="{{!isEdit}}" data-id="{{item.id}}" bind:tap="checked">
+							<image hidden="{{item.checked2}}" class="cart_checkbox"
+								src="./img/icon_checkbox_uncheck.png" />
+							<image hidden="{{!item.checked2}}" class="cart_checkbox"
+								src="./img/icon_checkbox_check.png" />
+						</view>
+						<navigator url="/pages/product/index?id={{item.pid}}" class="list_content_right">
+							<image src="{{comm.baseUrl+item.avatar}}" />
+							<view class="product_txt">
+								<view class="name">{{item.name}}</view>
+								<view class="unitPrice">
+									<view class="unitPrice_box">
+										<i>¥</i>
+										<text>{{item.price}}</text>
+									</view>
+								</view>
+							</view>
+						</navigator>
+						<mi-count data-id="{{item.id}}" class="num_operation" btn="btn" count-text="count-text"
+							bind:increase="increaseHandler" bind:decrease="decreaseHandler" count="{{item.count}}" quantityPurchased="0">
+						</mi-count>
+					</view>
+				</view>
+			</view>
+
+		</view>
+	</scroll-view>
+	<view wx:if="{{!empty}}">
+		<view class="cart_list-footer" hidden="{{isEdit}}">
+			<view bind:tap="toggleAllcheck">
+				<image class="cart_checkbox" src="./img/{{isAllCheck(cartList,isEdit)}}.png" />
+				<text>全选</text>
+			</view>
+			<view class="message">
+				<view>合计: <text class="price">¥{{total(cartList)}}</text></view>
+				<view class="btn" bind:tap="pay">结算({{amount(cartList,isEdit)}})</view>
+			</view>
+		</view>
+		<view class="cart_list-footer" hidden="{{!isEdit}}">
+			<view bind:tap="toggleAllcheck">
+				<image class="cart_checkbox" src="./img/{{isAllCheck(cartList,isEdit)}}.png" />
+				<text>全选</text>
+			</view>
+			<view class="btn" bind:tap="Removed">删除({{amount(cartList,isEdit)}})</view>
+		</view>
+	</view>
+</view>

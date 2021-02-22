@@ -1,0 +1,115 @@
+.profile-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.profile-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 198rpx;
+  flex-shrink:0;
+  background-size: cover;
+}
+.profile-content{
+  flex-grow: 1;
+  text-align: center;
+  background-color: rgb(244, 244, 244);
+  overflow: auto;
+}
+
+
+.profile-header image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.login{
+  text-align: center;
+}
+
+.login text{
+  margin-top: 10rpx;
+  display: block;
+  font-size: 28rpx;
+  color: white;
+}
+
+.toPage{
+  display: inline-block;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+
+.profile-content_top .header navigator{
+  box-sizing: border-box;
+  background-color: white;
+  padding:10rpx 30rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+.profile-content_top_lable{ 
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  margin: 4rpx 0;
+}
+
+.profile-content_top_lable navigator{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 140rpx;
+  width: 25%;   
+}
+
+.profile-content_top_lable navigator image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+
+.profile-content_top_lable navigator text{
+  font-size:24rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.profile-content_lable{
+  margin-bottom:4rpx ;
+  background-color: white;
+}
+
+.profile-content_lable navigator{
+  display: flex;
+  padding:10rpx 40rpx 10rpx 0;
+  font-size: 28rpx;
+  align-items: center;
+  justify-content: space-between; 
+  border-bottom:2rpx  solid rgb(244, 244, 244);
+}
+
+.profile-content_lable navigator view{
+  display: flex;
+  align-items: center;
+}
+.profile-content_lable navigator view image{
+  width: 76rpx;
+  height: 76rpx;  
+}
+
+/* .signOut{
+  font-size: 42rpx;
+  border-color: rgb(178, 178, 178);
+  background-color: white;
+  border-radius: 5px;
+  border-width: 1px;
+  height: 12vw;
+  width: 26.666666vw;
+  margin: 10px auto;
+} */

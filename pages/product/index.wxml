@@ -1,0 +1,183 @@
+<wxs src="../comm.wxs" module="comm"></wxs>
+<view class="iconfont page-product" >
+
+  <l-mask show="{{maskShow}}" z-index="1002">
+  </l-mask>
+  <l-toast zIndex="1004"/>
+  <view class="page-popUp_num {{maskShow && selectMask==='num' ? 'show' : '' }}">
+    
+    <view class="avatarBox">
+      <image class="close" src="./img/close_01.png" bind:tap="CloseMask" />
+      <image class="avatar" src="{{comm.baseUrl+product.avatar}}" />
+      <view>
+        <view class="price_1">¥<span>{{product.price}}</span></view>
+        <view class='nun_1'>已选：<span>{{count}}</span>件</view>
+      </view>
+    </view>
+    <view class="popUp_num_operation">
+      <view>
+        <h5>数量</h5>
+        <mi-count class="num_operation" btn="btn" quantityPurchased="{{quantityPurchased}}"  count="{{count}}"
+        bind:increase="increase"
+        bind:decrease="decrease"
+        ></mi-count>
+      </view>
+    </view>
+    <view class="shoppingBtn" style="padding-bottom:10rpx">
+      <block >
+        <button hidden="{{addShop}}" class="addType1" bind:tap="addOrder">加入购物车</button>
+        <button hidden="{{addShop}}" class="pay1">立即购买</button>
+      </block>
+      <button class="determine" hidden="{{!addShop}}" bind:tap="addOrder">确定</button>
+    </view>
+  </view>
+  <view class="page-popUp_address {{maskShow && selectMask==='address' ? 'show' : '' }}">
+    <view class="popUp_address_top">
+      <h4>配送地址</h4>
+      <image class="close" src="./img/close_01.png" bind:tap="CloseMask" />
+    </view>
+    <view class="address_list">
+      <block wx:if="{{address.length}}">
+        <view class="address_list_box" wx:for="{{address}}" wx:key="index" bind:tap="changeAdr">
+          <radio class="addressList"  />
+          <view>
+            <view class="receiveName">
+              <h4>{{item.receive_name}}</h4><span wx:if="{{item.is_default==1}}">默认</span>
+            </view>
+            <block>{{item.receive_region+item.receive_detail}}</block>
+          </view>
+        </view>
+      </block>
+      <view class="addressList_empty" wx:else>暂无收货地址</view>
+    </view>
+    <view class="otherAddress">
+      <navigator url="/pages/address_edit/index">选择其他配送地址</navigator>
+    </view>
+  </view>
+  <view class="page-top" style="opacity:{{opacity}}">
+    <view  class="page-top_lable" bind:tap="getAnchorPoint">
+      <text data-anchorpoint="top" class="{{detailTop>=75 ? 'animation_load color' : 'animation_upload' }}">商品</text>
+      <text data-anchorpoint="details" class="{{detailTop<75 ? 'animation_load color' : 'animation_upload' }}" >详情</text>
+      <text class="">推荐</text>
+    </view>
+  </view>
+  <scroll-view  scroll-y class="page-main" bind:scroll="scroll" scroll-into-view="{{anchorPoint}}" >
+    <!-- 轮播图 -->
+    <view class="page-header" id="top">
+      <swiper :vertical="true" autoplay circular interval="3000" duration="800" bind:change="GetBannerPage">
+        <block wx:for="{{banner}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{comm.baseUrl+item}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="page">{{current+1}}/{{banner.length}}</view>
+    </view>
+    <!-- 商品信息 -->
+    <view class="product_message">
+      <view class="message_price">
+        <view>
+          <i class="price_i">¥</i>
+          <text class="price_text">{{product.price}}</text>
+        </view>
+        <view class="collection">
+          <i class="icon-collection"></i>
+          <text>收藏</text>
+        </view>
+      </view>
+      <view class="product-name">{{product.name}}</view>
+      <view class="product-function">{{product.brief}}</view>
+    </view>
+    <!-- 数量地址操作 -->
+    <view class="product-operation">
+      <view class="num_select">
+        <text class="title">已选</text>
+        <view data-masktype="num" bind:tap="CountMask">
+          <text style="font-size:26rpx">{{count}}件</text>
+          <image class="img-to" src="./img/to_01.png" />
+        </view>
+      </view>
+      <view class="address_select">
+        <text class="title">送至</text>
+        <view class="address_select_right" bind:tap="CountMask" data-masktype="address">
+          <view>
+            <block>
+              <view class="regions-picker">{{address[0].receive_region}}</view>
+            </block>
+            <block>
+              <text>有货</text>
+            </block>
+          </view>
+          <image class="img-to" src="./img/to_01.png" />
+        </view>
+      </view>
+      <view class="service">
+        <view class="service_box">
+          <view><i class="icon-adopt"></i><text>满99包邮</text></view>
+          <view><i class="icon-adopt"></i><text>三方店</text></view>
+          <view><i class="icon-adopt"></i><text>7天无理由</text></view>
+          <view><i class="icon-adopt"></i><text>有品配送</text></view>
+          <view><i class="icon-adopt"></i><text>售后免邮</text></view>
+          <view><i class="icon-adopt"></i><text>售后免邮</text></view>
+        </view>
+        <image class="img-to" src="./img/to_01.png" />
+      </view>
+    </view>
+    <!-- 店铺信息 -->
+    <view class="shopkeeper">
+      <view class="shopkeeper_message">
+        <view class="flexBox">
+          <image class="shopkeeper-avatar" src="./img/shopkeeper_01.jpg" />
+          <view>
+            <view class="shopkeeper-name">小米<text>自营</text></view>
+            <view class="shopkeeper-introduce">让每个人都能享受科技的乐趣</view>
+          </view>
+        </view>
+        <view>
+          <navigator url="#">进入店铺<i class="icon-upTo"></i></navigator>
+        </view>
+      </view>
+      <view class="shopkeeper_level">
+        <view>商品描述 <text>4.8</text> <i>高</i></view>
+        <view>卖家服务 <text>4.9</text> <i>高</i></view>
+        <view >物流服务 <text>4.9</text> <i>高</i></view>
+      </view>
+    </view>
+    <!-- 商品参数 -->
+    <view id="details" class="productDetails">
+      <view  class="productDetails_top">
+        <text class="lable_select">商品详情</text>
+      </view>
+      <view class="product_introduction" wx:for="{{otherImgs}}" wx:key="index">
+        <image src="{{comm.baseUrl + item}}" />
+      </view>
+    </view>
+    <!-- 推荐列表 -->
+    <!-- <view class="page-recommend">
+				<view class="page-recommend_top">
+					<span>你可能还喜欢</span>
+        </view>
+        <view>
+        
+        </view>
+      </view>
+    </view> -->
+  </scroll-view>
+  <view class="page-footer">
+    <view class="page_i">
+      <i class="icon-shop"></i>
+      <view>店铺</view>
+    </view>
+    <view class="page_i">
+      <navigator url="/pages/cart/index" open-type='switchTab'>
+        <i wx:if="{{!(orderCount===0)}}" class="num_bubble">{{orderCount}}</i>
+        <i class="icon-shoppingCard"></i>
+        <view>购物车</view>
+      </navigator>
+    </view>
+    <view class="shoppingBtn">
+      <button class="addType2" bind:tap="countPopUp">加入购物车</button>
+      <button class="pay2">立即购买</button>
+    </view>
+  </view>
+</view>

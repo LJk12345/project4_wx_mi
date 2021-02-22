@@ -1,0 +1,7 @@
+<!--components/mi_count/index.wxml-->
+
+<image hidden="{{count!==1}}" class="btn" src="./img/sub_count_disable_icon.png" bind:tap="decreaseHandler" mode="aspectFill"/>
+<image hidden="{{count===1}}" class="btn" src="./img/sub_count_enable_icon.png" bind:tap="decreaseHandler" mode="aspectFill"/>
+<text class="count-text">{{count}}</text>
+<image hidden="{{(count+quantityPurchased)>=maxCount}}" class="btn" src="./img/add_count_enable_icon.png" bind:tap="increaseHandler" mode="aspectFill"/>
+<image hidden="{{(count+quantityPurchased)<maxCount}}" class="btn" src="./img/add_count_disable_icon.png" bind:tap="increaseHandler" mode="aspectFill"/>

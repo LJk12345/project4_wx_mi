@@ -1,0 +1,8 @@
+//所有配置页和所有compontent在wxml中要用到公共部分
+module.exports.baseUrl="http://192.168.1.104:1314";
+
+
+//根据commonJS语法规定人任何一个文件内部都默认有以下代码
+//module.exports=exports={}
+//但commonJS只认识module.exports所导出的东西，如果exports没有和module.exports指向一致，则不认识exports指向的东西
+//注意：凡是直接对exports进行复制的操作都是在做无用功

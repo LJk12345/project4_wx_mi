@@ -1,0 +1,132 @@
+<view class="page-container iconfont">
+		<view class="page-header">
+			<image src="./img/index_01.png"/>
+			<view>
+				<i class="icon-search"></i>
+				<text>搜一搜</text>
+			</view>
+		</view>
+		<view class="page-content hide-scroll">
+        <swiper class="swiper-container" indicator-dots="true" indicator-active-color="#0f0802" indicator-color="rgba(255, 255, 255,0.9)" :vertical="true" autoplay circular interval="3000" duration="800" bind:change="GetBannerPage">
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_03.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_04.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_05.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_06.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_07.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_08.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_09.jpg"/>
+          </swiper-item>
+          <swiper-item>
+          <image class="swiper-slide" src="./img/index_10.jpg"/>
+          </swiper-item>
+        </swiper>
+			<block>
+				<view class="content_box1">
+					<view><navigator url="#"><image src="./img/index_11.png"/><text>上新精选</text> </navigator></view>
+					<view><navigator  url="#"><image src="./img/index_12.png"/><text>小米众筹</text> </navigator></view>
+					<view><navigator  url="#"><image src="./img/index_13.png"/><text>有品秒杀</text> </navigator></view>
+					<view><navigator  url="#"><image src="./img/index_14.png"/><text>热销排行</text> </navigator></view>
+					<view><navigator  url="#"><image src="./img/index_15.png"/><text>小米自营</text> </navigator></view>
+					<view><navigator  url="#"><image src="./img/index_16.png"/><text>下单立返</text> </navigator></view>
+					<view><navigator  url="#"><image src="./img/index_17.png"/><text>9.9包邮</text> </navigator></view>
+					<view><navigator url="#"><image src="./img/index_18.png"/><text>有品直播</text> </navigator></view>
+					<view><navigator url="#"><image src="./img/index_19.png"/><text>小米庄园</text> </navigator></view>
+					<view><navigator url="#"><image src="./img/index_20.png"/><text>智能生活</text> </navigator></view>
+				</view>
+			</block>
+			<navigator url="#">
+				<image  src="./img/index_21.gif" class="gif_1" mode="widthFix"/>
+			</navigator>
+			<block>
+				<navigator url="#">
+					<image src="./img/index_22.gif" class="gif_2" />
+				</navigator>
+			</block>
+			<view class="content_box2">
+				<navigator url="#"><image src="./img/index_23.png"/></navigator>
+				<navigator url="#"><image src="./img/index_24.png" /></navigator>
+				<navigator url="#"><image src="./img/index_25.png"/></navigator>
+				<navigator url="#"><image src="./img/index_26.png" /></navigator>
+				<navigator url="#"><image src="./img/index_27.png" /></navigator>
+				<navigator url="#"><image src="./img/index_28.png" /></navigator>
+				<navigator url="#"><image src="./img/index_29.png" /></navigator>
+				<navigator url="#"><image src="./img/index_30.png" /></navigator>
+			</view>
+			<view class="content_box3 hide-scroll">
+				<view class="title"><text>上新精选</text><navigator>更多></navigator></view>
+				<view class="content_box3_content hide-scroll">
+					<view style="background-color: #EDF6F8;"><navigator href="#"><image src="./img/hotProduct_01.png" /><text>迪奥MNI口红套盒</text></navigator></view>
+					<view style="background-color: #FCF7F1;"><navigator href="#"><image src="./img/hotProduct_02.png"/><text>云米旅行电热杯</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_03.png"/><text>羊毛保暖休闲鞋</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_04.png"/><text>微软Surface Go 2</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_05.png"/><text>汽车应急启动电源</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_06.png"/><text>六竖砧板刀筷架</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_07.png"/><text>小米台式净饮机</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_08.png"/><text>足金花开富贵吊坠</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_09.png"/><text>巨能写多彩中性笔</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_10.png"/><text>CAT遥控工程车</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_12.png"/><text>外国硬币集锦册</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_13.png"/><text>发热暖贴</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_14.png"/><text>无籽红宝石红提</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_15.png"/><text>Umbra蜂鸟墙饰</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_16.png"/><text>智能场景面板开关</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_17.png"/><text>气凝胶抗寒休闲裤</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_18.png"/><text>Note 9 Pro 5G</text></navigator></view>
+					<view><navigator url="#"><image src="./img/hotProduct_19.png"/><text>智能助听器</text></navigator></view>
+				</view>
+			</view>
+			<view class="content_box4" style="background: url(img/index_37.png) no-repeat;background-size: 100% 100%;">
+				<view class="title"><text>上新精选</text><navigator>更多></navigator></view>
+				<view class="content_box4_show1">
+					<navigator url="#">
+						<view class="show1_left">
+							<text>贝尔森智能指纹锁</text>
+							<view>接入米家App，按时AS阿萨按时AS阿萨按时AS阿萨按时AS阿萨</view>
+							<view><text>¥</text><i>1999</i></view>
+							<view class="hot"><image src="./img/index_38.png" />支持人数 <text>524</text> / 完成度 <text>104%</text></view>
+						</view>
+						<image src="./img/index_39.png" />
+					</navigator>
+					<view class="box4_footer"></view>
+				</view>
+				<view class="content_box4_show2">
+					<navigator url="#">
+						<view style="font-size: 26rpx;">AI智能练字笔</view>
+						<view class="show2_middle">
+							<view><text>¥</text><i>199</i>起</view>
+							<image src="./img/index_42.png"/>
+						</view>
+						<view>
+							<view class="hot"><image src="./img/index_38.png" />支持人数 <text>5288</text></view>
+							<view class="box4_footer"></view>
+						</view>
+					</navigator>
+
+					<navigator url="#">
+						<view style="font-size: 26rpx;">蒸汽电动拖把</view>
+						<view class="show2_middle">
+							<view><text>¥</text><i>499</i></view>
+							<image src="./img/index_58.png"/>
+						</view>
+						<view>
+							<view class="hot"><image src="./img/index_38.png" />支持人数 <text>4688</text></view>
+							<view class="box4_footer"></view>
+            </view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>

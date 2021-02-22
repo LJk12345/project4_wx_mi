@@ -1,0 +1,49 @@
+.page-container {
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+.page-content {
+  flex-shrink: 1;
+}
+
+.page-content view{
+  padding-left: 40rpx;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  background-color: white;
+  font-size: 24rpx;
+  position: relative;
+  margin-bottom: 2rpx;
+}
+
+.page-content input{
+  font-size: 26rpx;
+  margin-left: 40rpx;
+  width: 70%;
+}
+
+.save-btn{
+  display: block;
+  text-align: center;
+  padding: 10rpx 0;
+  border-radius: 10rpx;
+  width: 30%;
+  margin: 40rpx auto;
+  background-color: rgb(131, 94, 63);
+  color: white;
+  font-size: 28rpx;
+}
+
+.delete {
+  display: block;
+  padding-left: 40rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: white;
+  font-size: 24rpx;
+  color: #e30d0d;
+  margin-bottom: 5px;
+}
+

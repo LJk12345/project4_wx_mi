@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-mask":"/miniprogram_npm/lin-ui/mask",
+    "mi-count":"/components/mi_count"
+  },
+  "navigationBarTitleText": "商品信息"
+}

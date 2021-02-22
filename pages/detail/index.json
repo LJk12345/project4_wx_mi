@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "mi-count":"../../components/mi_count/index"    
+  }
+}

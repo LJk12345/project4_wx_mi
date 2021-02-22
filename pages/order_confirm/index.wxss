@@ -1,0 +1,284 @@
+/* pages/order_confirm/index.wxss */
+.close{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 36rpx;
+
+}
+
+.page-container{
+  position: relative;
+  width: 100%;
+  height: calc(100% - 108rpx);
+  background-color: #F4F4F4;
+  overflow: auto;
+}
+
+.page-content_header{
+  position: absolute;
+  width: 100%;
+  height:360rpx;
+}
+
+/* 主要内容区域 */
+.page-content{
+  position: absolute;
+  width: 710rpx;
+  right: 0;
+  left: 0;
+  top: 0;
+  margin: auto;
+  flex-grow: 1;
+}
+
+.icon-upTo{
+  font-size: 26rpx;
+  color: rgb(179, 179, 179);
+  margin-left: 10rpx;
+}
+
+/* 内容容器 */
+.page-content_box{
+  background-color: white;
+  border-radius: 20rpx;
+  padding:32rpx 20rpx ;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+
+/* 地址信息 */
+.address{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.address_message{
+  margin-right: 20rpx;
+}
+
+.address view:nth-child(1) {
+  font-size: 16px;
+  font-weight: bolder;
+  margin-bottom: 8px;
+
+}
+
+.address view:nth-child(1) span{
+  margin-right: 15px;
+}
+
+.address view:nth-child(2) {
+  font-size: 13px;
+}
+
+
+/* 商品信息样式 */
+.list_top{
+  margin-bottom: 32rpx;
+}
+
+.list_title{
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-left: 14rpx;
+  vertical-align: middle;
+}
+
+/* 订单列表头部样式 */
+.list_top  image{
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+}
+
+
+/* 商品信息样式 */
+.list_content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.list_content navigator{
+  display: flex;
+  width: 100%;
+  align-items:center;
+}
+
+.list_content image{
+  width: 127rpx;
+  height: 127rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  border-radius: 10rpx;
+  background-color: #F4F4F4;
+}
+
+.list_content navigator > view{
+  flex-grow: 1;
+  padding-right:40rpx;
+  box-sizing: border-box;
+}
+
+.list_content .name{
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+
+.name text{
+  font-size: 20rpx;
+  color: #bf1111;
+  border: 2rpx solid #bf1111;
+  padding: 4rpx;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+
+.unitPrice_num {
+  display: flex;
+  justify-content: space-between;
+}
+
+.unitPrice {
+  font-size: 30rpx;
+  color: #bf1111;
+}
+.unitPrice i{
+  font-size: 20rpx;
+}
+
+.unitNum {
+  color: black;
+  font-weight: bolder;
+  font-size: 24rpx;
+}
+
+.lable{
+  display: flex;
+  margin: 20rpx 0;
+  font-size:20rpx;
+
+}
+
+.lable text{
+  color: rgb(191, 17, 17);
+  padding:4rpx 10rpx;
+  border-radius: 40rpx;
+  background-color:rgb(255,244,244) ;
+}
+
+
+
+/* 发票/留言样式 */
+.invoice , .leaving_message{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.invoice view{
+  text-align: right;
+  flex-grow: 1;
+}
+
+.leaving_message input{
+  flex-grow: 1;
+  border: 0;
+  outline: none;
+  margin-left: 20rpx;
+  color: rgb(153, 153, 153);
+  font-size: 24rpx;
+  align-self: flex-end;
+}
+/* 结算详情 */
+.settlement view{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.money_color{
+  color:#bf1111 ;
+}
+
+
+.page-footer{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height:108rpx;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  padding-left:40rpx ;
+  box-sizing: border-box;
+}
+
+.page-footer view{
+  font-size: 28rpx;
+  font-weight: bolder;
+}
+
+.page-footer .price{
+  color: rgb(191, 17, 17);
+  font-size: 44rpx ;
+}
+
+
+.page-footer view text:nth-child(2) , .price i {
+  font-size: 26rpx  !important;
+  margin: 0 10rpx;
+}
+
+.page-footer button{
+  flex-shrink: 0;
+  outline:none;
+  border: 0;
+  color:white;
+  font-weight: bolder;
+  font-size:30rpx ;
+  border-radius:40rpx;
+  margin-right: 16rpx;
+  height: 75rpx;
+  width:192rpx;
+  background:linear-gradient(90deg, rgb(240,77,46) , rgb(213,17,17))
+}
+
+.mask-content{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 80%;
+  border-radius:20rpx ;
+ 
+  background-color: white;
+}
+.mask-content > text{
+  padding:20rpx 0 ;
+  display: block;
+  text-align: center;
+}
+
+.mask-content view{
+  font-size: 28rpx;
+  display: flex;
+  justify-content:space-between;
+  text-align: center;
+  margin:0 20rpx 20rpx 20rpx;
+}
+
+.mask-content view text:last-child{
+  color: #bf1111;
+}
+
+.mask-content button{
+  width: 100% !important;
+}

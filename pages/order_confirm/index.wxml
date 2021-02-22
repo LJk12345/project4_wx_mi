@@ -1,0 +1,113 @@
+<!--pages/order_confirm/index.wxml-->
+<!-- <view bind:tap="chooseAddress">
+  <text wx:if="{{address===null}}" >选择地址</text>
+  <block wx:else >
+    <text>{{address.name}}</text>
+    <text>{{address.receive_name}}</text>
+    <text>{{address.receive_phone}}</text>
+    <text>{{address.receive_region}}</text>
+    <text>{{address.receive_detail}}</text>
+  </block>
+</view> -->
+<wxs src="../comm.wxs" module="comm"></wxs>
+<view class="page-container iconfont">
+    <l-mask show="{{mask}}"  >
+			<view class="mask-content" >
+				<text>活动优惠</text>
+				<view wx:for="{{orderList}}" wx:key="index">
+					<text>有品秒杀</text>
+          <text>-¥{{item.discountPrice}}</text>
+				</view>
+				<button bind:tap="MaskSwitch">知道了</button>
+      </view>
+		</l-mask>
+		<view class="page-content_header" style="background: url(img/shoppingCard_01.png) no-repeat;background-size: cover;"></view>
+		<view class="page-content">
+			<view class="page-content_box address" bind:tap="chooseAddress">
+				<view class="address_message">
+					<view>
+            <text>{{address.receive_name}}</text>
+            <text>{{address.receive_phone_encode}}</text>
+          </view>
+					<view>
+            <text>{{address.receive_region}}</text>
+            <text>{{address.receive_detail}}</text>
+					</view>
+				</view>
+				<i class="icon-upTo"></i>
+			</view>
+			<block>
+				<view class="page-content_box">
+					<view class="list_top">
+						<image src="./img/shopImg_01.png"/>
+						<text  class="list_title">小米自营</text>
+					</view>
+					<view class="list_content" wx:for="{{orderList}}" wx:key="index">
+						<navigator url="/pages/product/index?id={{item.pid}}">
+						<image src="{{comm.baseUrl+item.avatar}}" />
+						<view>
+              <view class="name" >
+                <text>有品秒杀</text>
+                <i>{{item.name}}</i>
+              </view>
+							<view class="unitPrice_num">
+								<text class="unitPrice" >
+                  ¥{{item.price}}
+                  <i>{{item.price.toFixed(2).split('.')[1]}}</i>
+                </text>
+								<text class="unitNum">x{{item.count}}</text>
+							</view>
+							<view class="lable">
+                <text>7天无理由退货</text>
+              </view>
+						</view>
+						</navigator>
+					</view>
+					<view class="invoice">
+            <text>发票类型</text>
+            <view>
+              <text>个人电子发票</text>
+              <i class="icon-upTo"></i>
+            </view>
+					</view>
+					<view class="leaving_message">
+            <text>买家留言</text>
+            <input type="text" maxlength="45" placeholder="填写内容需要与商家协商并确认,45字以内" bind:input="message"/>
+					</view>
+				</view>
+			</block>
+			<view class="page-content_box settlement">
+				<view>
+          <text>商品金额</text>
+          <text >{{money}}</text>
+        </view>
+				<view bind:tap="MaskSwitch">
+          <text>活动优惠<i class="icon-warning"></i></text>
+          <text class="money_color" >-¥{{discountPriceAll}}</text>
+        </view>
+				<view>
+          <text>优惠券</text>
+          <text>暂无可用<i class="icon-upTo"></i></text>
+        </view>
+				<view>
+          <text>运费</text>
+          <text class="money_color">+¥0.00</text>
+        </view>
+				<view>
+          <text>配送方式</text>
+          <text>快递配送</text>
+        </view>
+			</view>
+		</view>
+		<view class="page-footer">
+      <view>
+        合计:
+        <text class="price">
+          <i>¥</i>
+          <block>{{copeWith}}</block>
+        </text>
+        <text>免运费</text>
+      </view>
+			<button bind:tap="toPay">订单提交</button>
+		</view >
+	</view>

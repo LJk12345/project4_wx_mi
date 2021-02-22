@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mi-count":"/components/mi_count"
+  },
+  "navigationBarTitleText": "购物车"
+}

@@ -1,0 +1,206 @@
+.page-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color:rgb(244,244,244) ;
+}
+
+/* 内容 */
+.page-content{
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(244, 244, 244);
+  overflow: auto;
+  margin: auto;
+}
+
+.page-content_top{
+  padding: 24rpx 0 0;
+  height: 150rpx;
+  width: 100%;
+}
+
+.page-content_top view{
+  color: #d71d1d;
+}
+
+
+.page-content_top view:nth-child(1) text{
+  font-size:15px;
+  margin-right: 2px;
+}
+
+
+.page-content_top view:nth-child(2) {
+  font-size:12px;
+}
+
+/* 支付方式 */
+.payment_method, .payment_method1{
+  position: relative;
+  width: 97%;
+  margin: auto;
+  background-color:white;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+
+.payment_method image, .payment_method1 image{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 28rpx;
+}
+
+
+.payment_box{
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.payment_box >view{
+  flex-grow:1;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 24rpx;
+}
+
+.payment_box >view text{
+  font-size: 28rpx;
+}
+
+.payment_box >view text text{
+  font-size: 18rpx;
+  margin-left: 16rpx;
+  color: white;
+  border-radius: 15rpx;
+  padding:4rpx 8rpx;
+  background:linear-gradient(90deg, rgb(240,77,46) , rgb(213,17,17) );
+}
+
+.payment_box >view view{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius:50%;
+  box-sizing: border-box;
+  border: 2rpx solid rgb(225,225,225);
+}
+
+.payment_box >view image{
+  width: 32rpx;
+  height: 32rpx;
+  border-radius:50%;
+  margin: 0;
+}
+
+.by_stages{
+ height: 0;
+ overflow: hidden;
+}
+
+@keyframes slidedown{
+  from {
+    height: 0;
+  }
+  to {
+    height: 385rpx;
+  }
+}
+ 
+@keyframes slideup{
+  from {
+    height: 385rpx;
+  }
+  to {
+    height: 0;
+  }
+}
+ 
+.open{
+  animation: slidedown 1s;
+  animation-fill-mode: forwards;
+}
+ 
+.close{
+  animation: slideup 1s; 
+  animation-fill-mode: forwards;
+}
+
+.hide{
+  display: none;
+}
+ 
+.show{
+  display: block;
+}
+
+
+.count_money{
+  font-size: 28rpx;
+  margin: 22rpx  0 22rpx 26rpx ;
+  text-align: left;
+}
+
+.total_repayment{
+  color: #d51717;
+
+}
+.stages_number{
+  padding: 0 26rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.stages_number > view{
+  width: 330rpx;
+  height: 130rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  padding: 22rpx 20rpx 0;
+  background-color: #f4f4f4;
+  margin-bottom: 20rpx;
+  border: 2rpx solid #f4f4f4;
+}
+
+.stages_select{
+  background-color: rgb(255,248,248) !important;
+  color: #d51717;
+  border: 2rpx solid rgb(213, 23, 23) !important;
+}
+
+.stages_number > view view:nth-child(1){
+  font-size: 28rpx;
+}
+
+.stages_number > view view:nth-child(2){
+  font-size: 22rpx;
+}
+
+/* 底部 */
+.page-footer{
+  padding: 16rpx 0;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.page-footer view{
+  width: 80% ;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 40rpx;
+  color: white;
+  font-size:30rpx ;
+  font-weight: bolder;
+  background:linear-gradient(90deg, rgb(240,77,46) , rgb(213,17,17) ) ;
+}

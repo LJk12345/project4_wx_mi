@@ -1,0 +1,44 @@
+<!--pages/address/index.wxml-->
+<!-- <view wx:for="{{list}}" wx:key="id" bind:tap="chooseAddress" data-id="{{item.id}}">
+    <text>{{item.receive_name}}</text>
+    <text>{{item.receive_phone}}</text>
+    <text>{{item.receive_region}}</text>
+    <text class="btn" data-id="{{item.id}}" catch:tap="beginUpdate">修改</text>
+  </view>
+<text class="btn" bind:tap="beginAdd">添加</text>
+
+ -->
+
+
+<view class="page-container">
+  <view class="page-content">
+    <view wx:if="{{emptyShow}}" class="addressEmpty" >
+      <image src="img/address_02.png" />
+      <view>您还没有收货地址，请点击下方+新建</view>
+    </view>
+    <view class="address hide-scroll" wx:else>
+      <view class="address_box" wx:for="{{list}}" data-id="{{item.id}}"  wx:key="index" bind:tap="chooseAddress">
+        <view class="address_list">
+          <view class="address-receive">
+            <span>{{item.receive_name}}</span>
+            <span>{{item.receive_phone_encode}}</span>
+          </view>
+          <view class="address-message">
+            <i wx:if="{{item.is_default===1}}">默认</i>
+            <text data-id="{{item.id}}" wx:else bind:tap="isDefault">设置默认</text>
+            <view>
+              <span>{{item.receiveRegion}}</span>
+              <span>{{item.receiveDetail}}</span>
+            </view>
+          </view>
+        </view>
+        <navigator>
+          <image data-id="{{item.id}}" src="img/address_03.png" catch:tap="beginUpdate"/>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="page-footer">
+    <text bind:tap="beginAdd">+添加地址</text>
+  </view>
+</view>

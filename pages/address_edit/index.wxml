@@ -1,0 +1,36 @@
+<!-- pages/address_edit/index.wxml -->
+<view class="page-container">
+
+	<view class="page-content">
+		<view>
+			<span>收货姓名</span>
+			<input data-name="model.receiveName" value="{{model.receiveName}}" class="receiveName" type="text"
+				placeholder="请输入收货人姓名" maxlength="20" bind:input="receiveChange" />
+		</view>
+		<view>
+			<span>手机号码</span>
+			<input data-name="model.receivePhone" value="{{model.receivePhone}}" class="receivePhone" type="text"
+				placeholder="请输入收货人电话" bind:input="receiveChange" />
+		</view>
+		<view>
+			<span>所在地区</span>
+			<picker data-name="model.receiveRegion" mode="region" bind:change="receiveChange" value="{{model.receiveRegion}}" custom-item="{{customItem}}">
+				<view class="regions-picker">
+					{{model.receiveRegion}}
+				</view>
+			</picker>
+			<!-- <input data-name="model.receiveRegion" value="{{model.receiveRegion}}" class="regions-picker" type="text"
+				placeholder="请选择省/市/区/街道" bind:input="receivePhoneChange" /> -->
+		</view>
+		<view>
+			<span>详细地址</span>
+			<input data-name="model.receiveDetail" value="{{model.receiveDetail}}" class="receiveDetail" type="text"
+				placeholder="请输入街道地址" bind:input="receiveChange" />
+		</view>
+		<text wx:if="{{!editTtpe}}" class="delete" bindtap="open">删除收货地址</text>
+		<text class="save-btn" bind:tap="save">保存</text>
+	</view>
+	<l-toast />
+	<l-dialog show="{{show}}" type="confirm" title="警告" title-color="red" content="本次操作后数据无法恢复是否继续？" confirm-text="继续"
+		confirm-color="red" cancel-text="取消" cancel-color="#999" bind:linconfirm="del" />
+</view>

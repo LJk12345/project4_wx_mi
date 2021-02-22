@@ -1,0 +1,84 @@
+<view class="profile-container">
+  <view class="profile-header" style="background-image:url(./img/profile_17.png)">
+    <button wx:if="{{!isUserInfo}}" open-type="getUserInfo" bind:getuserinfo="getUserInfoHandler">授权登录</button>
+    <view wx:else class="login" bind:getuserinfo="getUserInfoHandler" open-type="getUserInfo">
+      <image src="{{isUserInfo ? avatarUrl : './img/profile_01.png'}}" />
+      <text >{{nickName}}</text>
+    </view>
+  </view>
+  <view class="profile-content">
+    <view class="profile-content_top">
+      <view class="header">
+        <navigator url="/pages/order/index">
+          <text>我的订单</text>
+          <image class="toPage" src="./img/profile_02.png" />
+        </navigator>
+      </view>
+      <view class="profile-content_top_lable">
+        <navigator url="/pages/order/index?laber=true">
+          <image src="./img/profile_03.png" />
+          <text>待付款</text>
+        </navigator>
+        <navigator url="#">
+          <image src="./img/profile_04.png" />
+          <text>待收货</text>
+        </navigator>
+        <navigator url="#">
+          <image src="./img/profile_05.png" />
+          <text>评价</text>
+        </navigator>
+        <navigator url="#">
+          <image src="./img/profile_06.png" />
+          <text>退款/售后</text>
+        </navigator>
+      </view>
+    </view>
+    <view class="profile-content_lable">
+      <navigator url="#">
+        <view>
+          <image src="./img/profile_07.png" />
+          <text>我的权益</text>
+        </view>
+        <image class="toPage" src="./img/profile_02.png" />
+      </navigator>
+      <navigator url="#" >
+        <view>
+          <image src="./img/profile_08.png" />
+          <text>我的收藏</text>
+        </view>
+        <image class="toPage" src="./img/profile_02.png" />
+      </navigator>
+      <navigator url="/pages/address/index">
+        <view>
+          <image src="./img/profile_09.png" />
+          <text>地址管理</text>
+        </view>
+        <image class="toPage" src="./img/profile_02.png" />
+      </navigator>
+    </view>
+    <view class="profile-content_lable">
+      <navigator url="#">
+        <view>
+          <image src="./img/profile_10.png" />
+          <text>资质证照</text>
+        </view>
+        <image class="toPage" src="./img/profile_02.png" />
+      </navigator>
+      <navigator url="#">
+        <view>
+          <image src="./img/profile_11.png" />
+          <text>协议规则</text>
+        </view>
+        <image class="toPage" src="./img/profile_02.png" />
+      </navigator>
+      <navigator url="#">
+        <view>
+          <image src="./img/profile_12.png" />
+          <text>帮助与反馈</text>
+        </view>
+        <image class="toPage" src="./img/profile_02.png" />
+      </navigator>
+    </view>
+    <!-- <button class="signOut" wx:if="{{isUserInfo}}" bind:tap="clearCache">退出</button> -->
+  </view>
+</view>

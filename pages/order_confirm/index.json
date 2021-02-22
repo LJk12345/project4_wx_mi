@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-mask":"/miniprogram_npm/lin-ui/mask"
+  },
+  "navigationBarTitleText": "订单确认"
+}

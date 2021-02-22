@@ -1,0 +1,37 @@
+<!--pages/category/index.wxml-->
+<wxs src="../comm.wxs" module="comm"></wxs>
+<wxs module="getAvatar">
+  module.exports=function(list,id){
+    if(id===0)return "";
+    for(var i=0;i<list.length;i++){
+      if(list[i].id===id) 
+      return list[i].avatar;
+    }
+  }
+</wxs>
+<view class="page-category">
+  <view class="page-category_header">
+    <view class="search">
+       <image src="img/search.png" />
+       <input type="text" placeholder="海鲜"/>
+    </view>
+  </view>
+  <view class="page-category_content">
+    <view class="content_left hide-scroll"> 
+      <view style="padding:20rpx 0;width:100%" wx:for="{{listMain}}" wx:key="id" bindtap="toggleId" data-id="{{item.id}}">
+        <text class="{{item.id===activeId ? 'active' : ''}}">{{item.name}}</text>
+      </view>
+    </view>
+    <view class="content_right hide-scroll">
+      <image class="avatar" src="{{comm.baseUrl+getAvatar(listMain,activeId)}}" mode="aspectFit"/>
+      <view class="product_list"  wx:if="{{listSub.length>0}}">
+        <navigator  wx:for="{{listSub}}" wx:key="id" url="/pages/list/index?cid={{item.id}}">
+          <image src="{{comm.baseUrl+item.avatar}}" mode="aspectFit"/>
+          <text>{{item.name}}</text>
+        </navigator>
+      </view>
+      <text wx:else>暂无</text>
+    </view>
+  </view>
+</view>
+

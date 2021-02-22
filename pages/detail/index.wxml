@@ -1,0 +1,3 @@
+<!--pages/detail/index.wxml-->
+<mi-count count="{{count}}" bind:decrease="decreaseHandler"
+bind:increase="increaseHandler" ></mi-count>

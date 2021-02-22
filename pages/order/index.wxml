@@ -1,0 +1,60 @@
+<!--pages/order/index.wxml-->
+<wxs src="../comm.wxs" module="comm"></wxs> 
+<view class="page-container iconfont" >
+	<l-toast/>
+		<view class="page-header">
+			<!-- <view class="page-header_top">
+				<i class="icon-search"></i>
+			</view> -->
+			<view class="page-header_lable">
+				<view wx:for="{{labers}}" wx:key="index" data-index="{{index}}" bind:tap="lableSwitch">
+        <text  class="{{item.index===laber ? 'select':'' }}">{{item.name}}</text>
+				</view>
+			</view>
+		</view>
+		<view class="page-content hide-scroll">
+			<block>
+				<view class="empty_list" wx:if="{{orderList.length===0}}">
+					<image src="./img/order_01.png"/>
+					<view>目前没有<text>{{labers[laber].name}}</text>订单哦~</view>
+				</view>
+				 <view class="order_list_content">
+					<view class="order_list_box" wx:for="{{orderList}}" wx:key="index">
+						<view class="order_list_top">
+							<view class="top_left">
+								<image src="./img/shopImg_01.png" />
+								<text class="list_title">小米自营</text>
+							</view>
+							<view class="top_right" >{{item.is_pay ? '已支付' : '待支付'}}</view>
+						</view>
+						 <view class="order_product">
+							<view class="product_box" wx:for="{{item.details}}"
+							     wx:key="index">
+								<navigator url="/pages/product/index?id={{item.pid}}">
+									<image src="{{comm.baseUrl+item.avatar}}"/>
+									<view class="product_box_right">
+										<view class="name">{{item.name}}</view>
+										<view class="unitPrice_num">
+											<view>
+                        ¥<text>{{item.price}}</text>
+											</view>
+											<view >
+                        x<text>{{item.count}}</text>
+											</view>
+										</view>
+									</view>
+								</navigator>
+							</view>
+						</view>
+					 <view class="order_list_footer">
+							<text class="delBtn" wx:if="{{item.is_pay}}"
+							  data-orderId="{{item.order_id}}"   bind:tap="delOrder">删除订单</text>
+							<text class="timer" wx:else>29分钟后订单将关闭</text>
+							<view wx:if="{{!item.is_pay}}">去支付</view>
+							<view data-index="{{index}}" bind:tap="shop" wx:else>再次购买</view>
+						</view>
+					</view>
+				</view> 
+			</block>
+		</view> 
+</view>

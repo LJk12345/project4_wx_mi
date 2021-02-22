@@ -1,0 +1,67 @@
+<wxs module="repayment">
+  module.exports = function (price,interestRate) {
+		return (price*(1+interestRate/100)).toFixed(2);
+	} 
+</wxs>
+<wxs module="installmentPayment">
+  module.exports = function(price,service) {
+		return ((price*service.interestRate/100)/service.periods).toFixed(2);
+	} 
+</wxs>
+<wxs module="payMoney">
+   module.exports = function(lable,price,interestRate) {
+     var result=0;
+     if(lable===2) result=(price*(1+interestRate/100)).toFixed(2);
+    else  result=price;
+		return result
+	} 
+</wxs>
+<view class="page-container">
+		<view class="page-content">
+			<view class="page-content_top">
+				<view><text>¥</text><i style="font-size:56rpx;">{{price}}</i><text v-text="`.${price.toFixed(2).split('.')[1]}`"></text></view>
+				<view><text>支付剩余时间</text><text class="minute"></text>:<text class="seconds">00</text></view>
+			</view>
+			<view class="payment_method">
+				<view class="payment_box">
+          <image src="./img/pay_04.png"/>
+          <view style="border-bottom:2rpx solid rgb(247,247,247);" data-lable="0"  bind:tap="setLable">
+            <text>支付宝<text>推荐</text></text>
+            <view hidden="{{lable===0}}" ></view>
+            <image hidden="{{lable===1 || lable===2}}" src="./img/pay_01.png"/>
+         
+          </view>
+        </view>
+        <view class="payment_box">
+          <image src="./img/pay_02.png"/>
+          <view data-lable="1" bind:tap="setLable">
+            <text>小米钱包</text>
+            <view hidden="{{lable===1 }}"></view>
+            <image hidden="{{lable===0 || lable===2}}" src="./img/pay_01.png"/>
+          </view>
+        </view>
+      </view>
+			<view class="payment_method1">
+				<view class="payment_box">
+          <image src="./img/pay_03.png"/>
+          <view data-lable="2" bind:tap="setLable">
+            <text>小米分期</text>
+            <view  hidden="{{lable===2}}" ></view>
+            <image hidden="{{lable===0 || lable===1}}" src="./img/pay_01.png"/>
+          </view>
+        </view>
+				<view class="by_stages {{ init ? 'show' :'hide' }} {{lable===2 ? 'open': 'close' }} " >
+					<view class="count_money">总还款<text>¥{{repayment(price,service[serviceIndex].interestRate)}}</text></view>
+					<view class="stages_number">
+            <view wx:for="{{service}}"  wx:key="index" data-index="{{index}}" class="{{serviceIndex===index ? 'stages_select' :'' }}" bind:tap="selectService">
+              <view>¥<text>{{repayment(price,service[index].interestRate)}}</text>x<text>{{item.periods}}</text>期</view>
+              <view>手续费¥<text>{{installmentPayment(price,item)}}</text>/期，费率<text></text>{{item.interestRate}}%</view>
+            </view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="page-footer">
+			<view>确认支付¥<text>{{payMoney(lable,price,service[serviceIndex].interestRate)}}</text></view>
+		</view>
+	</view>

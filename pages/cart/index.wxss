@@ -1,0 +1,258 @@
+.cart_list-container{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		background-color: #F4F4F4;
+	}
+
+	.cart_list-header{
+		position: fixed;
+		width: 100%;
+		height:88rpx;
+		top: 0;
+		background-color: white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		z-index: 1001;
+	}
+	/* .cart_list-header .icon-back{
+		width: 10.4vw;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	} */
+
+	/* .cart_list-header .icon-back::before{
+		font-size: 16px;
+	} */
+/* 
+	.cart_list-header div{
+		font-size: 16px;
+	}
+*/
+
+	.cart_list-header .a{
+		padding: 10rpx 30rpx;
+		font-size: 24rpx;
+	} 
+
+
+	.cart_list-content{
+		position: relative;
+		width: 100%;
+    flex-grow:1;
+		overflow: hidden;
+	}
+
+	.cart_list_background{
+		width: 100%;
+		height: 180rpx;
+	}
+
+	.cart_list-content_middle{
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
+	.cart_list-content_middle .top{
+		height:175rpx;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: white;
+	}
+/* 
+	.top .icon-back{
+		width: 85rpx;
+		height: 85rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	} */
+
+	.titleCenter{
+		font-size: 32rpx;
+		flex-grow: 1;
+		text-align: center;
+		margin-left:85rpx; 
+	}
+
+	 .top .b{
+		padding: 5px 19px 5px 10px;
+		font-size: 14px;
+	}
+
+	.cart_list-content_middle  .empty_list{
+		padding: 80rpx 0;
+		text-align: center;
+		background-color: #F4F4F4;
+	}
+
+ .empty_list image{
+		width:24vw ;
+		height: 24vw;
+	}
+
+	 .empty_list view{
+		padding-top: 26rpx;
+		font-size: 24rpx;
+	}
+
+	 .empty_list navigator{
+		display: inline-block;
+		border-radius: 40rpx;
+		padding: 16rpx 28rpx;
+		background-color: white;
+		font-size: 26rpx;
+		border: 2rpx solid black;
+		margin-top:28px ;
+	}
+
+	.cart_list-content_list {
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.cart_list-content_list .list_box{
+		width: 94.72vw;
+		margin:0 auto;
+		margin-bottom: 10px;
+		background-color: white;
+		border-radius: 10px;
+		padding: 10px ;
+		box-sizing: border-box;
+	}
+
+	.cart_list-content_list .list_top{
+		height: 11.733333vw;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.cart_checkbox {
+		display: inline-block;
+		width: 40rpx;
+		height: 40rpx;
+		margin-right: 20rpx;
+		vertical-align: middle;
+	}
+
+
+
+	.cart_list-content_list .list_content{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.cart_list-content_list .list_content_right{
+		position: relative;
+		flex-grow: 1;
+		display: flex;
+		align-items:center;
+	}
+
+	.cart_list-content_list .list_content_right image{
+		width: 22.933333vw;
+		height: 22.933333vw;
+		margin-right: 10px;
+		flex-shrink: 0;
+		border-radius: 5px;
+		background-color: #F4F4F4;
+	}
+
+	.list_content_right  .product_txt{
+		flex-grow: 1;
+		padding-right:40rpx;
+		box-sizing: border-box;
+	}
+
+ .product_txt .name{
+		font-size: 28rpx;
+		margin-bottom: 20px;
+	}
+
+	.product_txt .unitPrice {
+		display: flex;
+		justify-content: space-between;
+	}
+
+ .unitPrice .unitPrice_box{
+		font-size: 30rpx;
+		color: #bf1111;
+	}
+	.unitPrice_box i{
+		font-size: 20rpx;
+	}
+
+	.num_operation{
+		height: 45rpx;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.btn{
+		text-align: center;
+		width: 38rpx;
+		height: 38rpx;
+	}
+
+	.count-text{
+		height: 100%;
+		font-size: 30rpx;
+		line-height: 45rpx;
+		width: 45rpx;
+		text-align: center;
+		background-color: #F4F4F4
+	}
+
+	.cart_list-footer{
+		padding:0 16rpx;
+		box-sizing: border-box;
+		height:108rpx;
+		width: 100%;
+		flex-shrink:0;
+		display: flex;
+		background-color: white;
+		align-items:center;
+		justify-content: space-between;
+
+	}
+
+	.cart_list-footer .message{
+		display: flex;
+		align-items: center;
+	}
+
+	.cart_list-footer .message view:first-child{
+		font-size:26rpx;
+		font-weight:bolder ;
+		margin-right: 20rpx;
+
+	}
+	.cart_list-footer .price{
+		font-size:32rpx ;
+		color: #bf1111;
+		font-weight:normal;
+	}
+
+	.cart_list-footer .btn{
+		margin: 0;
+    height: 80rpx;
+    line-height: 80rpx;
+		width:190rpx;
+		flex-shrink: 0;
+    color:white;
+    text-align: center;
+		font-weight: bolder;
+		font-size:30rpx ;
+		border-radius:40rpx;
+		background:linear-gradient(90deg, rgb(240,77,46) , rgb(213,17,17))
+	}

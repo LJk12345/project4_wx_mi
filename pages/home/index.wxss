@@ -1,0 +1,262 @@
+.page-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+}
+
+.page-header{
+  flex-shrink:0 ;
+  height:105rpx;
+  background-color: rgb(132,93,50);
+  display: flex;
+  align-items: center;
+}
+
+.page-header image{
+  height: 56rpx;
+  width: 72rpx;
+  margin-left: 24rpx;
+  margin-right: 22rpx;
+}
+
+.page-header view{
+  display: flex;
+  align-items: center;
+  height: 55%;
+  background-color: #f4f4f4;
+  flex-grow: 1;
+  margin-right: 20rpx;
+  border-radius: 40rpx;
+  color: rgb(164,164,164);
+  font-size: 28rpx;
+}
+
+.page-content{
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+
+
+.swiper-container{
+  position: relative;
+  height: 320rpx;
+  width: 100%;
+}
+
+.swiper-slide{
+  width: 100%;
+  height: 100%;
+  
+}
+
+.content_box1{
+  background-color: rgb(255,245,243);
+  padding: 20rpx 20rpx 0  20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content_box1 view{
+  text-align: center;
+  width: 20%;
+  margin-bottom:28rpx ;
+}
+
+.content_box1 navigator image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.content_box1 navigator text{
+  display: block;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.gif_1{
+  width: 100%;
+}
+
+.gif_2{
+  width: 100%;
+}
+
+.content_box2{
+  padding: 10rpx 0 20rpx 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content_box2 navigator{
+  display: inline-block;
+  width:170rpx;
+  margin: 10rpx 10rpx 0 0;
+  border-radius: 20rpx;
+}
+
+.content_box2 navigator image{
+  width: 100%;
+  height: 208rpx;
+}
+
+.content_box3{
+  width: 95%;
+  margin:0  auto 20rpx auto;
+  background-color: white;
+  border-radius: 10rpx;
+}
+
+.title{
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title text{
+  font-size: 36rpx;
+  font-weight: bolder;
+}
+
+.content_box3 view navigator, .content_box4 view navigator{
+  font-size: 24rpx;
+  color: #999;
+}
+
+.content_box3_content{
+  overflow-y: auto;
+  display: flex;
+  box-sizing: border-box;
+  padding:0  20rpx 20rpx 20rpx;
+}
+
+.content_box3_content view{
+  flex-shrink: 0;
+  width: 185rpx;
+  margin-right: 4rpx;
+  text-align: center;
+}
+
+.content_box3_content image{
+  width: 100%;
+  height: 185rpx;
+}
+
+.content_box3_content text{
+  font-size: 22rpx;
+  text-align: center;
+  padding: 0 14rpx;
+  box-sizing: border-box;
+}
+
+.content_box4{
+  width: 95%;
+  margin:0 auto;
+  padding-bottom: 10rpx;
+  border-radius: 10rpx;
+}
+
+.content_box4_show1{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  width: 100%;
+}
+
+.content_box4_show1 navigator{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content_box4_show1 navigator > image{
+  height: 265rpx;
+  width: 265rpx;
+}
+
+.show1_left{
+  width:368rpx;
+}
+
+.show1_left > text{
+  display: block;
+  padding: 0;
+  margin-top: 8rpx;
+  font-size: 30rpx;
+}
+
+.show1_left view{
+  font-size: 22rpx;
+  background-color: #FFF9E3;
+  border: 2rpx solid rgb(245,235,209);
+  color: #7d4402;
+  border-radius: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+
+.content_box4 view:nth-of-type(2){
+  color: #fe1f1d;
+  font-size: 24rpx;
+}
+
+.content_box4 view:nth-of-type(2) text {
+  font-size: 20rpx;
+}
+
+.content_box4 .hot{
+  font-size: 20rpx;
+  margin-top: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.hot image{
+  width: 40rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 8rpx;
+}
+
+.content_box4 .hot text{
+  color: #ee8842;
+}
+
+.box4_footer{
+  height: 8rpx;
+  background: linear-gradient(to right, rgb(255, 200, 102), rgb(255, 88, 27));
+}
+
+.content_box4_show2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  margin: 20rpx 0;
+}
+
+.content_box4_show2 navigator{
+  display: inline-block;
+  width: 316rpx;
+}
+
+
+
+.show2_middle{
+  display: flex;
+  justify-content: space-between;
+
+}
+.show2_middle image{
+  height: 150rpx;
+  width: 150rpx;
+}
+
+.content_box4_show2 navigator > view:last-child{
+  margin-top: -90rpx;
+}
+
