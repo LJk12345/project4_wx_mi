@@ -121,7 +121,8 @@ Page({
       }
     })
     this.setData({
-      cartList: arr2
+      cartList: arr2,
+      empty: arr2.length===0 ?  true : false
     })
     wx.lin.showToast({
       title: '删除成功~',
