@@ -26,33 +26,7 @@ Page({
       isEdit: !this.data.isEdit
     })
   },
-  // async getList() {
-    // let data = await http({
-    //   url: "/cart/list", //一定写服务器前缀,返回promise函数
-    // }, false)
-    // if (data.length != 0) this.setData({
-    //   empty: false
-    // });
-    // else this.setData({
-    //   empty: true
-    // });
-    // data.forEach(item => {
-    //   //数据动态开辟
-    //   item.checked1 = true;
-    //   item.checked2 = false;
-    // });
-    // if (this.data.listTop === 0) {
-    //   let query = wx.createSelectorQuery();
-    //   query.select('.cart_list-content_list').boundingClientRect(rect => {
-    //     this.setData({
-    //       listTop: rect.top - 44,
-    //     })
-    //   }).exec();
-    // }
-    // this.setData({
-    //   list: data
-    // });
-  // },
+  
   getListTop(){
       let query = wx.createSelectorQuery();
       query.select('.cart_list-content_list').boundingClientRect(rect => {
